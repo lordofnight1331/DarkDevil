@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Valentine's Proposal</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            text-align: center;
+            background-color: #f0e2e2;
+            color: #d43f00;
+            padding: 50px;
+        }
+        h1 {
+            color: #f07c89;
+            font-size: 3em;
+            margin-bottom: 30px;
+        }
+        .button {
+            padding: 15px 30px;
+            font-size: 18px;
+            background-color: #f1a7c2;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            margin: 10px;
+            transition: background-color 0.3s ease;
+        }
+        .button:hover {
+            background-color: #f87c89;
+        }
+        img {
+            width: 300px;
+            border-radius: 10px;
+            margin: 20px;
+            transition: transform 0.5s;
+        }
+        img:hover {
+            transform: scale(1.1);
+        }
+        .message {
+            font-size: 22px;
+            color: #ff3b5c;
+            font-weight: bold;
+            margin-top: 30px;
+        }
+        .heart {
+            color: #ff3b5c;
+        }
+    </style>
+</head>
+<body>
+    <h1>Will you be my Valentine?</h1>
+    <img src="c:\Users\Rajnish Singh\Pictures\Camera Roll\STK-20240901-WA0033.webp" alt="Heart Image" id="proposalImage">
+    
+    <button class="button" onclick="response('no')">No</button>
+    <button class="button" onclick="response('yes')">Yes</button>
+
+    <p class="message" id="message"></p>
+
+    <script>
+        const messages = [
+            "Oh no! You broke my heart 💔. Please say 'Yes'!",
+            "My heart is still waiting for your 'Yes' 💌.",
+            "Why are you saying 'No'? I'm waiting! 🥺",
+            "I promise you, it'll be the best 'Yes' ever! 😍",
+            "I won't stop asking! 💘 Please say 'Yes'!",
+            "Please say yes please please please na 🥺",
+            "Yes krdo varna maruga bohot",
+            "Yes kro",
+            "Yes kro na",
+            "Bar bar no kyu kr rhe ho ",
+            "Me ro rha hu ab tum yes nhi kr rhe aaaaaaaaaaa aaaaaaaaaaa  uuaaaaaaaaaaaaa"
+        ];
+
+        const images = [
+            "c:\Users\Rajnish Singh\Pictures\Camera Roll\STK-20240901-WA0033.webp",
+            "c:\Users\Rajnish Singh\Pictures\Camera Roll\STK-20240824-WA0002.webp",
+            "c:\Users\Rajnish Singh\Pictures\Camera Roll\STK-20250108-WA0010.webp",
+            "c:\Users\Rajnish Singh\Pictures\Camera Roll\STK-20250209-WA0029.webp",
+            "c:\Users\Rajnish Singh\Pictures\Camera Roll\STK-20250209-WA0030.webp",
+            "c:\Users\Rajnish Singh\Pictures\Camera Roll\STK-20250209-WA0031.webp",
+            "c:\Users\Rajnish Singh\Pictures\Camera Roll\STK-20250209-WA0033.webp",
+            "c:\Users\Rajnish Singh\Pictures\Camera Roll\STK-20250209-WA0032.webp"
+        ];
+
+        let attemptCount = 0;
+
+        function response(answer) {
+            const messageElement = document.getElementById('message');
+            const imageElement = document.getElementById('proposalImage');
+            
+            if (answer === 'no') {
+                attemptCount++;
+                const randomMessage = messages[attemptCount % messages.length];
+                const randomImage = images[attemptCount % images.length];
+
+                messageElement.textContent = randomMessage;
+                imageElement.src = randomImage;
+            } else if (answer === 'yes') {
+                messageElement.textContent = "Yay! You said 'Yes'! 🎉 Let's make this Valentine's Day unforgettable! 💖";
+                messageElement.style.color = "#00b38f";
+                imageElement.src = "https://via.placeholder.com/300x200/ff9d9d/000000?text=Happy+Valentines";
+                setTimeout(function() {
+                    alert("You just made my day! 💌 Happy Valentine's Day!");
+                }, 1000);
+            }
+        }
+    </script>
+</body>
+</html>
